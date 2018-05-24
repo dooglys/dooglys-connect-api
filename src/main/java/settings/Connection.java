@@ -4,10 +4,10 @@ import settings.types.ConnectionType;
 
 public class Connection {
 
-    ConnectionType type;
-    String parameter;
+    private ConnectionType type;
+    private String parameter;
 
-    Connection(ConnectionType type, String parameter) {
+    public Connection(ConnectionType type, String parameter) {
         this.type = type;
         this.parameter = parameter;
     }
@@ -19,5 +19,4 @@ public class Connection {
     public String getParameter() {
         return parameter;
     }
-
 }

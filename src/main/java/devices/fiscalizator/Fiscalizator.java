@@ -1,9 +1,9 @@
 package devices.fiscalizator;
 
-import devices.printer.Printer;
 import devices.fiscalizator.types.CheckType;
 import devices.fiscalizator.types.PaymentType;
 import devices.fiscalizator.types.TaxType;
+import devices.printer.Printer;
 
 import java.util.Date;
 import java.util.List;
@@ -70,6 +70,24 @@ public interface Fiscalizator extends Printer {
      * @throws FiscalizatorException
      */
     void cancelCheck() throws FiscalizatorException;
+
+    /**
+     * Внесение наличных в кассу
+     *
+     * @param cashierName Имя кассира
+     * @param amount      Сумма
+     * @throws FiscalizatorException
+     */
+    void depositingCash(String cashierName, double amount) throws FiscalizatorException;
+
+    /**
+     * Изъятие наличных из кассы
+     *
+     * @param cashierName Имя кассира
+     * @param amount      Сумма
+     * @throws FiscalizatorException
+     */
+    void paymentCash(String cashierName, double amount) throws FiscalizatorException;
 
     /**
      * Получение состояния чека

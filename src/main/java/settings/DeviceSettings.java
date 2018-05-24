@@ -1,28 +1,14 @@
 package settings;
 
-import settings.types.ConnectionType;
-
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
 public class DeviceSettings {
 
-    Connection connection;
-    Map<String, String> settings;
+    private Map<String, String> settings;
 
-    public DeviceSettings(ConnectionType connectionType, String connectionParameter) {
-        settings = new HashMap<>();
-        connection = new Connection(connectionType, connectionParameter);
-    }
-
-    DeviceSettings(Connection connection, Map<String, String> settings) {
-        this.connection = connection;
+    public DeviceSettings(Map settings) {
         this.settings = settings;
-    }
-
-    public void setConnection(Connection connection) {
-        this.connection = connection;
     }
 
     public void setSingleSetting(String settingName, String value) {
@@ -37,17 +23,8 @@ public class DeviceSettings {
         }
     }
 
-    public String getSettingString(String settingName) {
+    public String getSingleSetting(String settingName) {
         return settings.get(settingName);
-    }
-
-    public Connection getConnection() {
-        return connection;
-    }
-
-    @Override
-    public String toString() {
-        return String.format("[Подключение: %s (%s), Дополнительные настройки: %s]", connection.getConnectionType(), connection.getParameter(), settings);
     }
 
 }
