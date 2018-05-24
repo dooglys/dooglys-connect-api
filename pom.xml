@@ -13,4 +13,17 @@
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
+    <distributionManagement>
+        <repository>
+            <id>central</id>
+            <name>7d36475548ee-releases</name>
+            <url>http://jfrog.dooglys.net/artifactory/dooglys-connect-libs</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>7d36475548ee-snapshots</name>
+            <url>http://jfrog.dooglys.net/artifactory/dooglys-connect-libs</url>
+        </snapshotRepository>
+    </distributionManagement>
+
 </project>
