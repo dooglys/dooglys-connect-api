@@ -1,7 +1,7 @@
 package devices.general;
 
+import settings.Connection;
 import settings.DeviceSettings;
-import devices.general.DeviceException;
 
 public interface Device {
 
@@ -11,7 +11,7 @@ public interface Device {
      * @param deviceSettings USB порт, IP адрес и т.п.
      * @throws DeviceException
      */
-    void initialize(DeviceSettings deviceSettings) throws DeviceException;
+    void initialize(Connection connection, DeviceSettings deviceSettings) throws DeviceException;
 
     /**
      * Осуществляет попытку подключения устройства
