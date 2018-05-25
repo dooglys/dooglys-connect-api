@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.dooglys.api</groupId>
-    <artifactId>dooglys-connect-api</artifactId>
+    <artifactId>dooglys_connect_api</artifactId>
     <version>1.0</version>
 
     <properties>
