@@ -17,7 +17,7 @@ public interface Fiscalizator extends Printer {
      * @param taxVariants
      * @throws FiscalizatorException
      */
-    void fiscalization(String organizationInn, String registrationNumber, String cashierName, List<String> taxVariants) throws FiscalizatorException;
+    void fiscalization(String organizationInn, String registrationNumber, String cashierName, List<String> taxVariants, boolean changeFN) throws FiscalizatorException;
 
     /**
      * Установка названия организации
@@ -32,13 +32,6 @@ public interface Fiscalizator extends Printer {
      * @throws FiscalizatorException
      */
     void setOrganizationAddress(String organizationAddress) throws FiscalizatorException;
-
-    /**
-     * Установка ИНН организации
-     * @param organizationINN
-     * @throws FiscalizatorException
-     */
-    void setOrganizationINN(String organizationINN) throws FiscalizatorException;
 
     /**
      * Установка названия ОФД
