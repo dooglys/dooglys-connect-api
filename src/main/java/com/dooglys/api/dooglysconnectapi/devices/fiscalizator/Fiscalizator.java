@@ -15,9 +15,10 @@ public interface Fiscalizator extends Printer {
      * @param registrationNumber
      * @param cashierName
      * @param taxVariants
+     * @param changeFN
      * @throws FiscalizatorException
      */
-    void fiscalization(String organizationInn, String registrationNumber, String cashierName, List<String> taxVariants) throws FiscalizatorException;
+    void fiscalization(String organizationInn, String registrationNumber, String cashierName, List<String> taxVariants, boolean changeFN) throws FiscalizatorException;
 
     /**
      * Закрытие ФН
