@@ -76,9 +76,10 @@ public interface Fiscalizator extends Printer {
      * @param checkType
      * @param cashierName
      * @param taxVariant
+     * @param cashierVatIn
      * @throws FiscalizatorException
      */
-    void openFiscalCheck(CheckType checkType, String cashierName, String taxVariant) throws FiscalizatorException;
+    void openFiscalCheck(CheckType checkType, String cashierName, String cashierVatIn, String taxVariant) throws FiscalizatorException;
 
     /**
      * Открыть нефискальный чек
