@@ -193,10 +193,9 @@ public interface Fiscalizator extends Printer {
      * Регистрация Z-отчета (закрытие смены)
      *
      * @param cashierName
-     * @param cashierVatIn
      * @throws FiscalizatorException
      */
-    void zReport(String cashierName, String cashierVatIn) throws FiscalizatorException;
+    void zReport(String cashierName) throws FiscalizatorException;
 
     /**
      * Получение шифра QR кода последнего фискального документа
