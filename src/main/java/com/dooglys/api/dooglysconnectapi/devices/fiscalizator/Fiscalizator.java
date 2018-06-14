@@ -8,8 +8,69 @@ import java.util.List;
 
 public interface Fiscalizator extends Printer {
 
+
     /**
-     * /**
+     * Регистрация и фискализация ККМ
+     * @param organizationInn
+     * @param registrationNumber
+     * @param cashierName
+     * @param taxVariants
+     * @param changeFN
+     * @throws FiscalizatorException
+     */
+    void fiscalization(String organizationInn, String registrationNumber, String cashierName, List<String> taxVariants, boolean changeFN) throws FiscalizatorException;
+
+    /**
+     * Закрытие ФН
+     * @param cashierName
+     * @throws FiscalizatorException
+     */
+    void closeFN(String cashierName) throws FiscalizatorException;
+
+    /**
+     * Установка названия организации
+     * @param organizationName
+     * @throws FiscalizatorException
+     */
+    void setOrganizationName(String organizationName) throws FiscalizatorException;
+
+    /**
+     * Установка адреса организации
+     * @param organizationAddress
+     * @throws FiscalizatorException
+     */
+    void setOrganizationAddress(String organizationAddress) throws FiscalizatorException;
+
+    /**
+     * Установка названия ОФД
+     * @param ofdName
+     * @throws FiscalizatorException
+     */
+    void setOFDName(String ofdName) throws FiscalizatorException;
+
+    /**
+     * Установка ИНН ОФД
+     * @param ofdinn
+     * @throws FiscalizatorException
+     */
+    void setOFDINN(String ofdinn) throws FiscalizatorException;
+
+    /**
+     * Установка адреса сервера ОФД
+     * @param ofdServerURL
+     * @throws FiscalizatorException
+     */
+    void setOFDServerURL(String ofdServerURL) throws FiscalizatorException;
+
+    /**
+     * Установка порта сервера ОФД
+     * @param ofdServerPort
+     * @throws FiscalizatorException
+     */
+    void setOFDServerPort(String ofdServerPort) throws FiscalizatorException;
+
+    /**
+     *
      * Открыть фискальный чек
      *
      * @param checkType
