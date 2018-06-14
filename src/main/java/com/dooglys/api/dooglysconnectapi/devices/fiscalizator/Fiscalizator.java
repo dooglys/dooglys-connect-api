@@ -134,20 +134,22 @@ public interface Fiscalizator extends Printer {
     /**
      * Внесение наличных в кассу
      *
-     * @param cashierName Имя кассира
-     * @param amount      Сумма
+     * @param cashierName   Имя кассира
+     * @param cashierVatIn  ИНН кассира
+     * @param amount        Сумма
      * @throws FiscalizatorException
      */
-    void depositingCash(String cashierName, double amount) throws FiscalizatorException;
+    void depositingCash(String cashierName, String cashierVatIn, double amount) throws FiscalizatorException;
 
     /**
      * Изъятие наличных из кассы
      *
-     * @param cashierName Имя кассира
-     * @param amount      Сумма
+     * @param cashierName   Имя кассира
+     * @param cashierVatIn  ИНН кассира
+     * @param amount        Сумма
      * @throws FiscalizatorException
      */
-    void paymentCash(String cashierName, double amount) throws FiscalizatorException;
+    void paymentCash(String cashierName, String cashierVatIn, double amount) throws FiscalizatorException;
 
     /**
      * Получение состояния чека
@@ -191,9 +193,10 @@ public interface Fiscalizator extends Printer {
      * Регистрация Z-отчета (закрытие смены)
      *
      * @param cashierName
+     * @param cashierVatIn
      * @throws FiscalizatorException
      */
-    void zReport(String cashierName) throws FiscalizatorException;
+    void zReport(String cashierName, String cashierVatIn) throws FiscalizatorException;
 
     /**
      * Получение шифра QR кода последнего фискального документа
