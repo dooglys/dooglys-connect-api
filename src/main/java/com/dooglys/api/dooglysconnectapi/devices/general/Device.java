@@ -33,6 +33,6 @@ public interface Device {
      *
      * @throws DeviceException
      */
-    void finalize() throws DeviceException;
+    void disconnect() throws DeviceException;
 
 }
