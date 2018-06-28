@@ -42,6 +42,13 @@ public interface Fiscalizator extends Printer {
     void setOrganizationAddress(String organizationAddress) throws FiscalizatorException;
 
     /**
+     * Установка адреса установки ККТ
+     * @param addressSettle
+     * @throws FiscalizatorException
+     */
+    void setAddressSettle(String addressSettle) throws FiscalizatorException;
+
+    /**
      * Установка названия ОФД
      * @param ofdName
      * @throws FiscalizatorException
@@ -68,6 +75,13 @@ public interface Fiscalizator extends Printer {
      * @throws FiscalizatorException
      */
     void setOFDServerPort(String ofdServerPort) throws FiscalizatorException;
+
+    /**
+     * Установка email отправителя чека
+     * @param senderEmail
+     * @throws FiscalizatorException
+     */
+    void setSenderEmail(String senderEmail) throws FiscalizatorException;
 
     /**
      *
@@ -276,6 +290,21 @@ public interface Fiscalizator extends Printer {
      * @throws FiscalizatorException
      */
     String getOrganizationAddress() throws FiscalizatorException;
+
+    /**
+     * Получение адреса установки ККТ
+     *
+     * @throws FiscalizatorException
+     */
+    String getAddressSettle() throws FiscalizatorException;
+
+    /**
+     * Получение email отправителя чека
+     *
+     * @return
+     * @throws FiscalizatorException
+     */
+    String getSenderEmail() throws FiscalizatorException;
 
     /**
      * Получение серийного номера ФН
