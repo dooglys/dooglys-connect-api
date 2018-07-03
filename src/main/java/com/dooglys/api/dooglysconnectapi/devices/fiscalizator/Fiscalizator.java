@@ -15,10 +15,18 @@ public interface Fiscalizator extends Printer {
      * @param registrationNumber
      * @param cashierName
      * @param taxVariants
-     * @param changeFN
      * @throws FiscalizatorException
      */
-    void fiscalization(String organizationInn, String registrationNumber, String cashierName, List<String> taxVariants, boolean changeFN) throws FiscalizatorException;
+    void fiscalization(String organizationInn, String registrationNumber, String cashierName, String cashierVatIn, List<String> taxVariants) throws FiscalizatorException;
+
+    /**
+     * Перерегистрация ККМ
+     * @param cashierName
+     * @param cashierVatIn
+     * @param reason
+     * @throws FiscalizatorException
+     */
+    void refiscalization(String cashierName, String cashierVatIn, RefiscalizationReason reason) throws FiscalizatorException;
 
     /**
      * Закрытие ФН
@@ -40,6 +48,13 @@ public interface Fiscalizator extends Printer {
      * @throws FiscalizatorException
      */
     void setOrganizationAddress(String organizationAddress) throws FiscalizatorException;
+
+    /**
+     * Установка адреса установки ККТ
+     * @param addressSettle
+     * @throws FiscalizatorException
+     */
+    void setAddressSettle(String addressSettle) throws FiscalizatorException;
 
     /**
      * Установка названия ОФД
@@ -68,6 +83,13 @@ public interface Fiscalizator extends Printer {
      * @throws FiscalizatorException
      */
     void setOFDServerPort(String ofdServerPort) throws FiscalizatorException;
+
+    /**
+     * Установка email отправителя чека
+     * @param senderEmail
+     * @throws FiscalizatorException
+     */
+    void setSenderEmail(String senderEmail) throws FiscalizatorException;
 
     /**
      *
@@ -276,6 +298,21 @@ public interface Fiscalizator extends Printer {
      * @throws FiscalizatorException
      */
     String getOrganizationAddress() throws FiscalizatorException;
+
+    /**
+     * Получение адреса установки ККТ
+     *
+     * @throws FiscalizatorException
+     */
+    String getAddressSettle() throws FiscalizatorException;
+
+    /**
+     * Получение email отправителя чека
+     *
+     * @return
+     * @throws FiscalizatorException
+     */
+    String getSenderEmail() throws FiscalizatorException;
 
     /**
      * Получение серийного номера ФН
