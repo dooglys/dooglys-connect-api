@@ -88,6 +88,46 @@ public interface Fiscalizator extends Printer {
     void paymentCash(String cashierName, double amount) throws FiscalizatorException;
 
     /**
+     * Получение dateTime
+     *
+     * @return
+     * @throws FiscalizatorException
+     */
+    String getDateTime() throws FiscalizatorException;
+
+    /**
+     * Получение fiscalProperty
+     *
+     * @return
+     * @throws FiscalizatorException
+     */
+    Long getFiscalProperty() throws FiscalizatorException;
+
+    /**
+     * Получение checkSum-a
+     *
+     * @return
+     * @throws FiscalizatorException
+     */
+    String getCheckSum() throws FiscalizatorException;
+
+    /**
+     * Получение fnNumber
+     *
+     * @return
+     * @throws FiscalizatorException
+     */
+    String getFnNumber() throws FiscalizatorException;
+
+    /**
+     * Получение CheckType
+     *
+     * @return
+     * @throws FiscalizatorException
+     */
+    int getCheckType() throws FiscalizatorException;
+
+    /**
      * Получение состояния чека
      *
      * @return 0/1 соответственно для закрытого/открытого чек
@@ -102,14 +142,6 @@ public interface Fiscalizator extends Printer {
      * @throws FiscalizatorException
      */
     int getCheckNumber() throws FiscalizatorException;
-
-    /**
-     * Получение шифра QR кода последнего чека
-     *
-     * @return
-     * @throws FiscalizatorException
-     */
-    String getCheckQRcode() throws FiscalizatorException;
 
     /**
      * Открытие смены
@@ -132,14 +164,6 @@ public interface Fiscalizator extends Printer {
      * @throws FiscalizatorException
      */
     void zReport(String cashierName) throws FiscalizatorException;
-
-    /**
-     * Получение шифра QR кода последнего фискального документа
-     *
-     * @return
-     * @throws FiscalizatorException
-     */
-    String getDocQRcode() throws FiscalizatorException;
 
     /**
      * Получение текущей общей суммы наличных в смене (с учетом прихода/расхода)
