@@ -211,7 +211,7 @@ public interface Fiscalizator extends Printer {
      * @return
      * @throws FiscalizatorException
      */
-    int getCheckType() throws FiscalizatorException;
+    CheckType getCheckType() throws FiscalizatorException;
 
     /**
      * Получение состояния чека
