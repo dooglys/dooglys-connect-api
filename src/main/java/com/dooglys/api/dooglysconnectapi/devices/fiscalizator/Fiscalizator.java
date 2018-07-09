@@ -8,16 +8,100 @@ import java.util.List;
 
 public interface Fiscalizator extends Printer {
 
+
     /**
-     * /**
+     * Регистрация и фискализация ККМ
+     * @param organizationInn
+     * @param registrationNumber
+     * @param cashierName
+     * @param taxVariants
+     * @throws FiscalizatorException
+     */
+    void fiscalization(String organizationInn, String registrationNumber, String cashierName, String cashierVatIn, List<String> taxVariants) throws FiscalizatorException;
+
+    /**
+     * Перерегистрация ККМ
+     * @param cashierName
+     * @param cashierVatIn
+     * @param reason
+     * @throws FiscalizatorException
+     */
+    void refiscalization(String cashierName, String cashierVatIn, RefiscalizationReason reason) throws FiscalizatorException;
+
+    /**
+     * Закрытие ФН
+     * @param cashierName
+     * @throws FiscalizatorException
+     */
+    void closeFN(String cashierName) throws FiscalizatorException;
+
+    /**
+     * Установка названия организации
+     * @param organizationName
+     * @throws FiscalizatorException
+     */
+    void setOrganizationName(String organizationName) throws FiscalizatorException;
+
+    /**
+     * Установка адреса организации
+     * @param organizationAddress
+     * @throws FiscalizatorException
+     */
+    void setOrganizationAddress(String organizationAddress) throws FiscalizatorException;
+
+    /**
+     * Установка адреса установки ККТ
+     * @param addressSettle
+     * @throws FiscalizatorException
+     */
+    void setAddressSettle(String addressSettle) throws FiscalizatorException;
+
+    /**
+     * Установка названия ОФД
+     * @param ofdName
+     * @throws FiscalizatorException
+     */
+    void setOFDName(String ofdName) throws FiscalizatorException;
+
+    /**
+     * Установка ИНН ОФД
+     * @param ofdinn
+     * @throws FiscalizatorException
+     */
+    void setOFDINN(String ofdinn) throws FiscalizatorException;
+
+    /**
+     * Установка адреса сервера ОФД
+     * @param ofdServerURL
+     * @throws FiscalizatorException
+     */
+    void setOFDServerURL(String ofdServerURL) throws FiscalizatorException;
+
+    /**
+     * Установка порта сервера ОФД
+     * @param ofdServerPort
+     * @throws FiscalizatorException
+     */
+    void setOFDServerPort(String ofdServerPort) throws FiscalizatorException;
+
+    /**
+     * Установка email отправителя чека
+     * @param senderEmail
+     * @throws FiscalizatorException
+     */
+    void setSenderEmail(String senderEmail) throws FiscalizatorException;
+
+    /**
+     *
      * Открыть фискальный чек
      *
      * @param checkType
      * @param cashierName
      * @param taxVariant
+     * @param cashierVatIn
      * @throws FiscalizatorException
      */
-    void openFiscalCheck(CheckType checkType, String cashierName, String taxVariant) throws FiscalizatorException;
+    void openFiscalCheck(CheckType checkType, String cashierName, String cashierVatIn, String taxVariant) throws FiscalizatorException;
 
     /**
      * Открыть нефискальный чек
@@ -72,20 +156,22 @@ public interface Fiscalizator extends Printer {
     /**
      * Внесение наличных в кассу
      *
-     * @param cashierName Имя кассира
-     * @param amount      Сумма
+     * @param cashierName   Имя кассира
+     * @param cashierVatIn  ИНН кассира
+     * @param amount        Сумма
      * @throws FiscalizatorException
      */
-    void depositingCash(String cashierName, double amount) throws FiscalizatorException;
+    void depositingCash(String cashierName, String cashierVatIn, double amount) throws FiscalizatorException;
 
     /**
      * Изъятие наличных из кассы
      *
-     * @param cashierName Имя кассира
-     * @param amount      Сумма
+     * @param cashierName   Имя кассира
+     * @param cashierVatIn  ИНН кассира
+     * @param amount        Сумма
      * @throws FiscalizatorException
      */
-    void paymentCash(String cashierName, double amount) throws FiscalizatorException;
+    void paymentCash(String cashierName, String cashierVatIn, double amount) throws FiscalizatorException;
 
     /**
      * Получение dateTime
@@ -236,6 +322,21 @@ public interface Fiscalizator extends Printer {
      * @throws FiscalizatorException
      */
     String getOrganizationAddress() throws FiscalizatorException;
+
+    /**
+     * Получение адреса установки ККТ
+     *
+     * @throws FiscalizatorException
+     */
+    String getAddressSettle() throws FiscalizatorException;
+
+    /**
+     * Получение email отправителя чека
+     *
+     * @return
+     * @throws FiscalizatorException
+     */
+    String getSenderEmail() throws FiscalizatorException;
 
     /**
      * Получение серийного номера ФН
