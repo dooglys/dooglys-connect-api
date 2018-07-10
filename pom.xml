@@ -6,7 +6,7 @@
 
     <groupId>com.dooglys.api</groupId>
     <artifactId>dooglys-connect-api</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -15,7 +15,7 @@
 
     <distributionManagement>
         <repository>
-            <id>dooglys</id>
+            <id>central</id>
             <name>7d36475548ee-releases</name>
             <url>http://jfrog.dooglys.net/artifactory/dooglys-connect-libs</url>
         </repository>
