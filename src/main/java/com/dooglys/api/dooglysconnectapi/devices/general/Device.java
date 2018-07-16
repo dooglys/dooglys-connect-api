@@ -28,4 +28,11 @@ public interface Device {
      */
     boolean isConnected() throws DeviceException;
 
+    /**
+     * Завершает работу с устройством. Освобождает занятый порт и т.п.
+     *
+     * @throws DeviceException
+     */
+    void disconnect() throws DeviceException;
+
 }
