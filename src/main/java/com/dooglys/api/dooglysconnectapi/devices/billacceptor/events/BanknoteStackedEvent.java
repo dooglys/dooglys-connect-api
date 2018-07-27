@@ -1,6 +1,6 @@
 package com.dooglys.api.dooglysconnectapi.devices.billacceptor.events;
 
-import types.BillAcceptorEventType;
+import com.dooglys.api.dooglysconnectapi.devices.billacceptor.BillAcceptorEventType;
 
 public class BanknoteStackedEvent extends BillAcceptorBaseEvent {
 

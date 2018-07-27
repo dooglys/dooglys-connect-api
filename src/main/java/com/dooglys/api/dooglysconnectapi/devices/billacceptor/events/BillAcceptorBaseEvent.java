@@ -1,7 +1,7 @@
 package com.dooglys.api.dooglysconnectapi.devices.billacceptor.events;
 
-import functionality.billacceptor.BillAcceptorEvent;
-import types.BillAcceptorEventType;
+import com.dooglys.api.dooglysconnectapi.devices.billacceptor.BillAcceptorEvent;
+import com.dooglys.api.dooglysconnectapi.devices.billacceptor.BillAcceptorEventType;
 
 public abstract class BillAcceptorBaseEvent implements BillAcceptorEvent {
 
