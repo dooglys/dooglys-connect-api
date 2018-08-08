@@ -1,21 +1,23 @@
 package com.dooglys.api.dooglysconnectapi.devices.billacceptor;
 
-public interface BillAcceptor {
+import com.dooglys.api.dooglysconnectapi.devices.general.Device;
+
+public interface BillAcceptor extends Device {
 	
 	/**
 	 * Заблокировать/Разблокировать работу купюроприемника
 	 */
-	public void setEnabled(boolean isEnabled);
+	public void setEnabled(boolean isEnabled) throws BillAcceptorException;
 	
 	/**
 	 * Положить банкноту в стеккер
 	 */
-	public void stackingBanknote();
+	public void stackingBanknote() throws BillAcceptorException;
 	
 	/**
 	 * Вернуть банкноту
 	 */
-	public void returnBanknote();
+	public void returnBanknote() throws BillAcceptorException;
 	
 	/**
 	 * Регистрация слушателя
