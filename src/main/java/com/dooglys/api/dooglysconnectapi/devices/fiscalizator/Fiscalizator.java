@@ -124,6 +124,26 @@ public interface Fiscalizator extends Printer {
     void register(String name, double quantity, double price, double amount, int department, TaxType tax) throws FiscalizatorException;
 
     /**
+     * Регистрация чека коррекции
+     *
+     * @param correctionType тип коррекции
+     * @param docNum         номер документа основания для коррекции
+     * @param docName        наименование основания для коррекции
+     * @param docDate        номер документа основания для коррекции
+     * @param cash           коррекция наличными
+     * @param card           коррекция картой
+     * @param advance        коррекция авансом
+     * @param credit         коррекция кредитом
+     * @param provision      коррекция обменом
+     * @param sumVatNo       сумма расчёта по чеку без НДС
+     * @param sumVat0        сумма НДС чека по ставке 0%
+     * @param sumVat10       сумма НДС чека по ставке 10%
+     * @param sumVat18       сумма НДС чека по ставке 18%
+     * @throws FiscalizatorException
+     */
+    void correction(CorrectionType correctionType, int docNum, String docName, Date docDate, double cash, double card, double advance, double credit, double provision, double sumVatNo, double sumVat0, double sumVat10, double sumVat18) throws FiscalizatorException;
+
+    /**
      * Регистация оплаты
      *
      * @param type
