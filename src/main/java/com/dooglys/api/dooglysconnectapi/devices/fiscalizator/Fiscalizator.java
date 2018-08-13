@@ -194,39 +194,31 @@ public interface Fiscalizator extends Printer {
     void paymentCash(String cashierName, String cashierVatIn, double amount) throws FiscalizatorException;
 
     /**
-     * Получение dateTime
+     * Получение даты и времени последнего чека
      *
      * @return
      * @throws FiscalizatorException
      */
-    String getDateTime() throws FiscalizatorException;
+    String getCheckDateTime() throws FiscalizatorException;
 
     /**
-     * Получение fiscalProperty
+     * Получение фискального признака последнего чека
      *
      * @return
      * @throws FiscalizatorException
      */
-    Long getFiscalProperty() throws FiscalizatorException;
+    long getCheckFiscalProperty() throws FiscalizatorException;
 
     /**
-     * Получение checkSum-a
+     * Получение суммы последнего чека
      *
      * @return
      * @throws FiscalizatorException
      */
-    String getCheckSum() throws FiscalizatorException;
+    String getCheckSumm() throws FiscalizatorException;
 
     /**
-     * Получение fnNumber
-     *
-     * @return
-     * @throws FiscalizatorException
-     */
-    String getFnNumber() throws FiscalizatorException;
-
-    /**
-     * Получение CheckType
+     * Получение типа последнего чека
      *
      * @return
      * @throws FiscalizatorException
@@ -234,15 +226,14 @@ public interface Fiscalizator extends Printer {
     CheckType getCheckType() throws FiscalizatorException;
 
     /**
-     * Получение состояния чека
+     * Получение состояния текущего чека
      *
-     * @return 0/1 соответственно для закрытого/открытого чек
      * @throws FiscalizatorException
      */
     int getCheckState() throws FiscalizatorException;
 
     /**
-     * Получение номера последнего чека не отправленного в ОФД
+     * Получение номера последнего чека
      *
      * @return
      * @throws FiscalizatorException
