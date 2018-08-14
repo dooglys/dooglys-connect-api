@@ -139,9 +139,11 @@ public interface Fiscalizator extends Printer {
      * @param sumVat0        сумма НДС чека по ставке 0%
      * @param sumVat10       сумма НДС чека по ставке 10%
      * @param sumVat18       сумма НДС чека по ставке 18%
+     * @param sumVat110      сумма НДС чека по ставке 10/110
+     * @param sumVat118      сумма НДС чека по ставке 18/118
      * @throws FiscalizatorException
      */
-    void correction(CorrectionType correctionType, String docNum, String docName, Date docDate, double cash, double card, double advance, double credit, double provision, double sumVatNo, double sumVat0, double sumVat10, double sumVat18) throws FiscalizatorException;
+    void correction(CorrectionType correctionType, String docNum, String docName, Date docDate, double cash, double card, double advance, double credit, double provision, double sumVatNo, double sumVat0, double sumVat10, double sumVat18, double sumVat110, double sumVat118) throws FiscalizatorException;
 
     /**
      * Регистация оплаты
