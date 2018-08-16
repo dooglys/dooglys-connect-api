@@ -430,4 +430,29 @@ public interface Fiscalizator extends Printer {
      * @throws FiscalizatorException
      */
     Date getFirstUnregisteredDocDate() throws FiscalizatorException;
+
+    /**
+     * Получение зарегистрированной версии ФФД
+     *
+     * @return
+     * @throws FiscalizatorException
+     */
+    FFDVersion getFFDVersion() throws FiscalizatorException;
+
+    /**
+     * Получение максимально поддерживаемой версии ФФД на установленном ФН
+     *
+     * @return
+     * @throws FiscalizatorException
+     */
+    FFDVersion getFFDVersionFN() throws FiscalizatorException;
+
+    /**
+     * Получение максимально поддерживаемой версии ФФД в текущей версии ПО ККТ
+     *
+     * @return
+     * @throws FiscalizatorException
+     */
+    FFDVersion getFFDVersionKKT() throws FiscalizatorException;
+
 }
