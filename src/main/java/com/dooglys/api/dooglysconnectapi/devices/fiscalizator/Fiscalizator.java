@@ -329,19 +329,19 @@ public interface Fiscalizator extends Printer {
     String getOrganizationINN() throws FiscalizatorException;
 
     /**
-     * Получение адреса зарегистрированной организации
+     * Получение адреса установки ККТ
      *
      * @return
      * @throws FiscalizatorException
      */
-    String getOrganizationAddress() throws FiscalizatorException;
+    String getAddressSettle() throws FiscalizatorException;
 
     /**
-     * Получение адреса установки ККТ
+     * Получение места установки ККТ
      *
      * @throws FiscalizatorException
      */
-    String getAddressSettle() throws FiscalizatorException;
+    String getPlaceSettle() throws FiscalizatorException;
 
     /**
      * Получение email отправителя чека
