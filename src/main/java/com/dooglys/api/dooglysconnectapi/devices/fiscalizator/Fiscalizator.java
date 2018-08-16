@@ -43,18 +43,18 @@ public interface Fiscalizator extends Printer {
     void setOrganizationName(String organizationName) throws FiscalizatorException;
 
     /**
-     * Установка адреса организации
-     * @param organizationAddress
-     * @throws FiscalizatorException
-     */
-    void setOrganizationAddress(String organizationAddress) throws FiscalizatorException;
-
-    /**
      * Установка адреса установки ККТ
      * @param addressSettle
      * @throws FiscalizatorException
      */
     void setAddressSettle(String addressSettle) throws FiscalizatorException;
+
+    /**
+     * Установка места установки ККТ
+     * @param placeSettle
+     * @throws FiscalizatorException
+     */
+    void setPlaceSettle(String placeSettle) throws FiscalizatorException;
 
     /**
      * Установка названия ОФД
@@ -329,19 +329,19 @@ public interface Fiscalizator extends Printer {
     String getOrganizationINN() throws FiscalizatorException;
 
     /**
-     * Получение адреса зарегистрированной организации
+     * Получение адреса установки ККТ
      *
      * @return
      * @throws FiscalizatorException
      */
-    String getOrganizationAddress() throws FiscalizatorException;
+    String getAddressSettle() throws FiscalizatorException;
 
     /**
-     * Получение адреса установки ККТ
+     * Получение места установки ККТ
      *
      * @throws FiscalizatorException
      */
-    String getAddressSettle() throws FiscalizatorException;
+    String getPlaceSettle() throws FiscalizatorException;
 
     /**
      * Получение email отправителя чека
