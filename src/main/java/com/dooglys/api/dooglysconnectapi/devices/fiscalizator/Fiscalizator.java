@@ -43,18 +43,18 @@ public interface Fiscalizator extends Printer {
     void setOrganizationName(String organizationName) throws FiscalizatorException;
 
     /**
-     * Установка адреса организации
-     * @param organizationAddress
-     * @throws FiscalizatorException
-     */
-    void setOrganizationAddress(String organizationAddress) throws FiscalizatorException;
-
-    /**
      * Установка адреса установки ККТ
      * @param addressSettle
      * @throws FiscalizatorException
      */
     void setAddressSettle(String addressSettle) throws FiscalizatorException;
+
+    /**
+     * Установка места установки ККТ
+     * @param placeSettle
+     * @throws FiscalizatorException
+     */
+    void setPlaceSettle(String placeSettle) throws FiscalizatorException;
 
     /**
      * Установка названия ОФД
