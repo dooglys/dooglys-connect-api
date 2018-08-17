@@ -43,8 +43,4 @@ public class CheckInfo {
         return type;
     }
 
-    public String getQR() {
-        return null;
-    }
-
 }
