@@ -1,5 +1,7 @@
 package com.dooglys.api.dooglysconnectapi.devices.fiscalizator;
 
+import com.dooglys.api.dooglysconnectapi.devices.fiscalizator.structures.CheckInfo;
+import com.dooglys.api.dooglysconnectapi.devices.fiscalizator.structures.DocumentInfo;
 import com.dooglys.api.dooglysconnectapi.devices.fiscalizator.types.*;
 import com.dooglys.api.dooglysconnectapi.devices.printer.Printer;
 
@@ -196,36 +198,20 @@ public interface Fiscalizator extends Printer {
     void paymentCash(String cashierName, String cashierVatIn, double amount) throws FiscalizatorException;
 
     /**
-     * Получение даты и времени последнего чека
-     *
-     * @return дата и время
-     * @throws FiscalizatorException
-     */
-    Date getCheckDateTime() throws FiscalizatorException;
-
-    /**
-     * Получение фискального признака последнего чека
-     *
-     * @return фискальный признак
-     * @throws FiscalizatorException
-     */
-    String getCheckFiscalProperty() throws FiscalizatorException;
-
-    /**
-     * Получение суммы последнего чека
-     *
-     * @return сумма чека
-     * @throws FiscalizatorException
-     */
-    double getCheckSumm() throws FiscalizatorException;
-
-    /**
-     * Получение типа последнего чека
+     * Получение данных о последнем чеке
      *
      * @return
      * @throws FiscalizatorException
      */
-    CheckType getCheckType() throws FiscalizatorException;
+    CheckInfo getCheckInfo() throws FiscalizatorException;
+
+    /**
+     * Получение данных о последнем документе
+     *
+     * @return
+     * @throws FiscalizatorException
+     */
+    DocumentInfo getDocumentInfo() throws FiscalizatorException;
 
     /**
      * Получение состояния текущего чека
@@ -233,14 +219,6 @@ public interface Fiscalizator extends Printer {
      * @throws FiscalizatorException
      */
     int getCheckState() throws FiscalizatorException;
-
-    /**
-     * Получение номера последнего чека
-     *
-     * @return
-     * @throws FiscalizatorException
-     */
-    int getCheckNumber() throws FiscalizatorException;
 
     /**
      * Открытие смены
