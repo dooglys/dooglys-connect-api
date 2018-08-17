@@ -198,26 +198,26 @@ public interface Fiscalizator extends Printer {
     /**
      * Получение даты и времени последнего чека
      *
-     * @return
+     * @return дата и время
      * @throws FiscalizatorException
      */
-    String getCheckDateTime() throws FiscalizatorException;
+    Date getCheckDateTime() throws FiscalizatorException;
 
     /**
      * Получение фискального признака последнего чека
      *
-     * @return
+     * @return фискальный признак
      * @throws FiscalizatorException
      */
-    long getCheckFiscalProperty() throws FiscalizatorException;
+    String getCheckFiscalProperty() throws FiscalizatorException;
 
     /**
      * Получение суммы последнего чека
      *
-     * @return
+     * @return сумма чека
      * @throws FiscalizatorException
      */
-    String getCheckSumm() throws FiscalizatorException;
+    double getCheckSumm() throws FiscalizatorException;
 
     /**
      * Получение типа последнего чека
