@@ -21,12 +21,7 @@ public class DocumentInfo {
         return dateTime;
     }
 
-    public int getNumber() {
-        return number;
+    public void setDateTime(Date dateTime) {
+        this.dateTime = dateTime;
     }
-
-    public String getFiscalProperty() {
-        return fiscalProperty;
-    }
-
 }

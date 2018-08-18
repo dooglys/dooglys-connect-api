@@ -1,6 +1,7 @@
 package com.dooglys.api.dooglysconnectapi.devices.fiscalizator;
 
 import com.dooglys.api.dooglysconnectapi.devices.fiscalizator.structures.CheckInfo;
+import com.dooglys.api.dooglysconnectapi.devices.fiscalizator.structures.CorrectionCheckParameters;
 import com.dooglys.api.dooglysconnectapi.devices.fiscalizator.structures.DocumentInfo;
 import com.dooglys.api.dooglysconnectapi.devices.fiscalizator.types.*;
 import com.dooglys.api.dooglysconnectapi.devices.printer.Printer;
@@ -128,24 +129,13 @@ public interface Fiscalizator extends Printer {
     /**
      * Регистрация чека коррекции
      *
-     * @param correctionType тип коррекции
-     * @param docNum         номер документа основания для коррекции
-     * @param docName        наименование основания для коррекции
-     * @param docDate        номер документа основания для коррекции
-     * @param cash           коррекция наличными
-     * @param card           коррекция картой
-     * @param advance        коррекция авансом
-     * @param credit         коррекция кредитом
-     * @param provision      коррекция обменом
-     * @param sumVatNo       сумма расчёта по чеку без НДС
-     * @param sumVat0        сумма НДС чека по ставке 0%
-     * @param sumVat10       сумма НДС чека по ставке 10%
-     * @param sumVat18       сумма НДС чека по ставке 18%
-     * @param sumVat110      сумма НДС чека по ставке 10/110
-     * @param sumVat118      сумма НДС чека по ставке 18/118
+     * @param correctionCheck   Параметры чека коррекции
+     * @param cashierName       Имя оператора
+     * @param cashierVatIn      ИНН кассира
+     * @param taxVariant        Система налогооблажения
      * @throws FiscalizatorException
      */
-    void correction(CorrectionType correctionType, String docNum, String docName, Date docDate, double cash, double card, double advance, double credit, double provision, double sumVatNo, double sumVat0, double sumVat10, double sumVat18, double sumVat110, double sumVat118) throws FiscalizatorException;
+    void correction(CorrectionCheckParameters correctionCheck, String cashierName, String cashierVatIn, String taxVariant) throws FiscalizatorException;
 
     /**
      * Регистация оплаты

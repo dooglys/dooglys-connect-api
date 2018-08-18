@@ -27,20 +27,40 @@ public class CheckInfo {
         return dateTime;
     }
 
+    public void setDateTime(Date dateTime) {
+        this.dateTime = dateTime;
+    }
+
     public double getSumm() {
         return summ;
+    }
+
+    public void setSumm(double summ) {
+        this.summ = summ;
     }
 
     public int getNumber() {
         return number;
     }
 
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
     public String getFiscalProperty() {
         return fiscalProperty;
     }
 
+    public void setFiscalProperty(String fiscalProperty) {
+        this.fiscalProperty = fiscalProperty;
+    }
+
     public CheckType getType() {
         return type;
+    }
+
+    public void setType(CheckType type) {
+        this.type = type;
     }
 
 }
