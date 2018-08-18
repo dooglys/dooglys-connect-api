@@ -11,6 +11,8 @@ public class DocumentInfo {
     private int number;
     private String fiscalProperty;
 
+    public DocumentInfo() {}
+
     public DocumentInfo(Date dateTime, int number, String fiscalProperty) {
         this.dateTime = dateTime;
         this.number = number;

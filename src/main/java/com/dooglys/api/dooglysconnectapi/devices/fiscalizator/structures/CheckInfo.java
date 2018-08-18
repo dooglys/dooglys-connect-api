@@ -15,6 +15,8 @@ public class CheckInfo {
     private String fiscalProperty;
     private CheckType type;
 
+    public CheckInfo() {}
+
     public CheckInfo(Date dateTime, double summ, int number, String fiscalProperty, CheckType type) {
         this.dateTime = dateTime;
         this.summ = summ;

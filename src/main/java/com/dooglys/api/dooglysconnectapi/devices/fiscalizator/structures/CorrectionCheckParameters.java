@@ -27,6 +27,8 @@ public class CorrectionCheckParameters {
     private double sumVat110;
     private double sumVat118;
 
+    public CorrectionCheckParameters() {}
+
     public CorrectionCheckParameters(CorrectionCheckType correctionCheckType, CorrectionType correctionType, String docNum, String docName, Date docDate, double cash, double card, double advance, double credit, double provision, double sumVatNo, double sumVat0, double sumVat10, double sumVat18, double sumVat110, double sumVat118) {
         this.correctionCheckType = correctionCheckType;
         this.correctionType = correctionType;
