@@ -128,24 +128,28 @@ public interface Fiscalizator extends Printer {
     /**
      * Регистрация чека коррекции
      *
-     * @param correctionType тип коррекции
-     * @param docNum         номер документа основания для коррекции
-     * @param docName        наименование основания для коррекции
-     * @param docDate        номер документа основания для коррекции
-     * @param cash           коррекция наличными
-     * @param card           коррекция картой
-     * @param advance        коррекция авансом
-     * @param credit         коррекция кредитом
-     * @param provision      коррекция обменом
-     * @param sumVatNo       сумма расчёта по чеку без НДС
-     * @param sumVat0        сумма НДС чека по ставке 0%
-     * @param sumVat10       сумма НДС чека по ставке 10%
-     * @param sumVat18       сумма НДС чека по ставке 18%
-     * @param sumVat110      сумма НДС чека по ставке 10/110
-     * @param sumVat118      сумма НДС чека по ставке 18/118
+     * @param correctionCheckType   тип чека коррекции
+     * @param correctionType        тип коррекции
+     * @param docNum                номер документа основания для коррекции
+     * @param docName               наименование основания для коррекции
+     * @param docDate               номер документа основания для коррекции
+     * @param cashierName           имя оператора
+     * @param cashierVatIn          ИНН оператора
+     * @param taxVariant            система налогооблажения
+     * @param cash                  коррекция наличными
+     * @param card                  коррекция картой
+     * @param advance               коррекция авансом
+     * @param credit                коррекция кредитом
+     * @param provision             коррекция обменом
+     * @param sumVatNo              сумма расчёта по чеку без НДС
+     * @param sumVat0               сумма НДС чека по ставке 0%
+     * @param sumVat10              сумма НДС чека по ставке 10%
+     * @param sumVat18              сумма НДС чека по ставке 18%
+     * @param sumVat110             сумма НДС чека по ставке 10/110
+     * @param sumVat118             сумма НДС чека по ставке 18/118
      * @throws FiscalizatorException
      */
-    void correction(CorrectionType correctionType, String docNum, String docName, Date docDate, double cash, double card, double advance, double credit, double provision, double sumVatNo, double sumVat0, double sumVat10, double sumVat18, double sumVat110, double sumVat118) throws FiscalizatorException;
+    void correction(CorrectionCheckType correctionCheckType, CorrectionType correctionType, String docNum, String docName, Date docDate, String cashierName, String cashierVatIn, String taxVariant, double cash, double card, double advance, double credit, double provision, double sumVatNo, double sumVat0, double sumVat10, double sumVat18, double sumVat110, double sumVat118) throws FiscalizatorException;
 
     /**
      * Регистация оплаты
