@@ -5,6 +5,6 @@ import com.dooglys.api.dooglysconnectapi.devices.billacceptor.BillAcceptorEventT
 public class CassetteRemovedEvent extends BillAcceptorBaseEvent {
 
 	public CassetteRemovedEvent() {
-		super(BillAcceptorEventType.CassetteInserted);
+		super(BillAcceptorEventType.CassetteRemoved);
 	}
 }
