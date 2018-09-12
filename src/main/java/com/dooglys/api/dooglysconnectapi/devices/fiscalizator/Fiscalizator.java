@@ -1,5 +1,7 @@
 package com.dooglys.api.dooglysconnectapi.devices.fiscalizator;
 
+import com.dooglys.api.dooglysconnectapi.devices.fiscalizator.structures.CheckInfo;
+import com.dooglys.api.dooglysconnectapi.devices.fiscalizator.structures.DocumentInfo;
 import com.dooglys.api.dooglysconnectapi.devices.fiscalizator.types.*;
 import com.dooglys.api.dooglysconnectapi.devices.printer.Printer;
 
@@ -43,18 +45,18 @@ public interface Fiscalizator extends Printer {
     void setOrganizationName(String organizationName) throws FiscalizatorException;
 
     /**
-     * Установка адреса организации
-     * @param organizationAddress
-     * @throws FiscalizatorException
-     */
-    void setOrganizationAddress(String organizationAddress) throws FiscalizatorException;
-
-    /**
      * Установка адреса установки ККТ
      * @param addressSettle
      * @throws FiscalizatorException
      */
     void setAddressSettle(String addressSettle) throws FiscalizatorException;
+
+    /**
+     * Установка места установки ККТ
+     * @param placeSettle
+     * @throws FiscalizatorException
+     */
+    void setPlaceSettle(String placeSettle) throws FiscalizatorException;
 
     /**
      * Установка названия ОФД
@@ -124,6 +126,32 @@ public interface Fiscalizator extends Printer {
     void register(String name, double quantity, double price, double amount, int department, TaxType tax) throws FiscalizatorException;
 
     /**
+     * Регистрация чека коррекции
+     *
+     * @param correctionCheckType   тип чека коррекции
+     * @param correctionType        тип коррекции
+     * @param docNum                номер документа основания для коррекции
+     * @param docName               наименование основания для коррекции
+     * @param docDate               номер документа основания для коррекции
+     * @param cashierName           имя оператора
+     * @param cashierVatIn          ИНН оператора
+     * @param taxVariant            система налогооблажения
+     * @param cash                  коррекция наличными
+     * @param card                  коррекция картой
+     * @param advance               коррекция авансом
+     * @param credit                коррекция кредитом
+     * @param provision             коррекция обменом
+     * @param sumVatNo              сумма расчёта по чеку без НДС
+     * @param sumVat0               сумма НДС чека по ставке 0%
+     * @param sumVat10              сумма НДС чека по ставке 10%
+     * @param sumVat18              сумма НДС чека по ставке 18%
+     * @param sumVat110             сумма НДС чека по ставке 10/110
+     * @param sumVat118             сумма НДС чека по ставке 18/118
+     * @throws FiscalizatorException
+     */
+    void correction(CorrectionCheckType correctionCheckType, CorrectionType correctionType, String docNum, String docName, Date docDate, String cashierName, String cashierVatIn, String taxVariant, double cash, double card, double advance, double credit, double provision, double sumVatNo, double sumVat0, double sumVat10, double sumVat18, double sumVat110, double sumVat118) throws FiscalizatorException;
+
+    /**
      * Регистация оплаты
      *
      * @param type
@@ -174,28 +202,27 @@ public interface Fiscalizator extends Printer {
     void paymentCash(String cashierName, String cashierVatIn, double amount) throws FiscalizatorException;
 
     /**
-     * Получение состояния чека
+     * Получение данных о последнем чеке
      *
-     * @return 0/1 соответственно для закрытого/открытого чек
+     * @return
+     * @throws FiscalizatorException
+     */
+    CheckInfo getCheckInfo() throws FiscalizatorException;
+
+    /**
+     * Получение данных о последнем документе
+     *
+     * @return
+     * @throws FiscalizatorException
+     */
+    DocumentInfo getDocumentInfo() throws FiscalizatorException;
+
+    /**
+     * Получение состояния текущего чека
+     *
      * @throws FiscalizatorException
      */
     int getCheckState() throws FiscalizatorException;
-
-    /**
-     * Получение номера последнего чека не отправленного в ОФД
-     *
-     * @return
-     * @throws FiscalizatorException
-     */
-    int getCheckNumber() throws FiscalizatorException;
-
-    /**
-     * Получение шифра QR кода последнего чека
-     *
-     * @return
-     * @throws FiscalizatorException
-     */
-    String getCheckQRcode() throws FiscalizatorException;
 
     /**
      * Открытие смены
@@ -218,14 +245,6 @@ public interface Fiscalizator extends Printer {
      * @throws FiscalizatorException
      */
     void zReport(String cashierName) throws FiscalizatorException;
-
-    /**
-     * Получение шифра QR кода последнего фискального документа
-     *
-     * @return
-     * @throws FiscalizatorException
-     */
-    String getDocQRcode() throws FiscalizatorException;
 
     /**
      * Получение текущей общей суммы наличных в смене (с учетом прихода/расхода)
@@ -292,19 +311,19 @@ public interface Fiscalizator extends Printer {
     String getOrganizationINN() throws FiscalizatorException;
 
     /**
-     * Получение адреса зарегистрированной организации
+     * Получение адреса установки ККТ
      *
      * @return
      * @throws FiscalizatorException
      */
-    String getOrganizationAddress() throws FiscalizatorException;
+    String getAddressSettle() throws FiscalizatorException;
 
     /**
-     * Получение адреса установки ККТ
+     * Получение места установки ККТ
      *
      * @throws FiscalizatorException
      */
-    String getAddressSettle() throws FiscalizatorException;
+    String getPlaceSettle() throws FiscalizatorException;
 
     /**
      * Получение email отправителя чека
@@ -393,4 +412,29 @@ public interface Fiscalizator extends Printer {
      * @throws FiscalizatorException
      */
     Date getFirstUnregisteredDocDate() throws FiscalizatorException;
+
+    /**
+     * Получение зарегистрированной версии ФФД (тег 1209)
+     *
+     * @return
+     * @throws FiscalizatorException
+     */
+    FFDVersion getFFDVersion() throws FiscalizatorException;
+
+    /**
+     * Получение максимально поддерживаемой версии ФФД на установленном ФН (тег 1190)
+     *
+     * @return
+     * @throws FiscalizatorException
+     */
+    FFDVersion getFFDVersionFN() throws FiscalizatorException;
+
+    /**
+     * Получение максимально поддерживаемой версии ФФД в текущей версии ПО ККТ (тег 1189)
+     *
+     * @return
+     * @throws FiscalizatorException
+     */
+    FFDVersion getFFDVersionKKT() throws FiscalizatorException;
+
 }

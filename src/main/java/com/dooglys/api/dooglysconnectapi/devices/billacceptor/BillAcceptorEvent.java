@@ -1,5 +1,5 @@
 package com.dooglys.api.dooglysconnectapi.devices.billacceptor;
 
-public class BillAcceptorEvent {
-
+public interface BillAcceptorEvent {
+    public BillAcceptorEventType getEventType();
 }
