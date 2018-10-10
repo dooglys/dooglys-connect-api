@@ -45,6 +45,13 @@ public interface Fiscalizator extends Printer {
     void setOrganizationName(String organizationName) throws FiscalizatorException;
 
     /**
+     * Установка СНО организации
+     * @param taxVarinats
+     * @throws FiscalizatorException
+     */
+    void setTaxVarinats(List<String> taxVarinats) throws FiscalizatorException;
+
+    /**
      * Установка адреса установки ККТ
      * @param addressSettle
      * @throws FiscalizatorException
