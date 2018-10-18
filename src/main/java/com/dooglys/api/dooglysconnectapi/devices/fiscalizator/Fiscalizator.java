@@ -191,7 +191,7 @@ public interface Fiscalizator extends Printer {
      * @param cashierVatIn
      * @throws FiscalizatorException
      */
-    void openFiscalCheck(CheckType checkType, String cashierName, String cashierVatIn, String taxVariant) throws FiscalizatorException;
+    void openFiscalCheck(CheckType checkType, String cashierName, String cashierVatIn, TaxVariant taxVariant) throws FiscalizatorException;
 
     /**
      * Открыть нефискальный чек
@@ -237,7 +237,7 @@ public interface Fiscalizator extends Printer {
      * @param sumVat118             сумма НДС чека по ставке 18/118
      * @throws FiscalizatorException
      */
-    void correction(CorrectionCheckType correctionCheckType, CorrectionType correctionType, String docNum, String docName, Date docDate, String cashierName, String cashierVatIn, String taxVariant, double cash, double card, double advance, double credit, double provision, double sumVatNo, double sumVat0, double sumVat10, double sumVat18, double sumVat110, double sumVat118) throws FiscalizatorException;
+    void correction(CorrectionCheckType correctionCheckType, CorrectionType correctionType, String docNum, String docName, Date docDate, String cashierName, String cashierVatIn, TaxVariant taxVariant, double cash, double card, double advance, double credit, double provision, double sumVatNo, double sumVat0, double sumVat10, double sumVat18, double sumVat110, double sumVat118) throws FiscalizatorException;
 
     /**
      * Регистация оплаты
