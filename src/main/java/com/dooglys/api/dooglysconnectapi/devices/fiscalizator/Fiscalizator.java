@@ -16,19 +16,17 @@ public interface Fiscalizator extends Printer {
      * @param organizationInn
      * @param registrationNumber
      * @param cashierName
-     * @param taxVariants
      * @throws FiscalizatorException
      */
-    void fiscalization(String organizationInn, String registrationNumber, String cashierName, String cashierVatIn, List<String> taxVariants) throws FiscalizatorException;
+    void fiscalization(String organizationInn, String registrationNumber, String cashierName) throws FiscalizatorException;
 
     /**
      * Перерегистрация ККМ
-     * @param cashierName
-     * @param cashierVatIn
      * @param reason
+     * @param cashierName
      * @throws FiscalizatorException
      */
-    void refiscalization(String cashierName, String cashierVatIn, RefiscalizationReason reason) throws FiscalizatorException;
+    void refiscalization(RefiscalizationReason reason, String cashierName) throws FiscalizatorException;
 
     /**
      * Закрытие ФН
@@ -43,6 +41,13 @@ public interface Fiscalizator extends Printer {
      * @throws FiscalizatorException
      */
     void setOrganizationName(String organizationName) throws FiscalizatorException;
+
+    /**
+     * Установка СНО организации
+     * @param taxVarinats
+     * @throws FiscalizatorException
+     */
+    void setTaxVarinats(List<TaxVariant> taxVarinats) throws FiscalizatorException;
 
     /**
      * Установка адреса установки ККТ
@@ -71,6 +76,89 @@ public interface Fiscalizator extends Printer {
      * @throws FiscalizatorException
      */
     void setOFDINN(String ofdinn) throws FiscalizatorException;
+
+    /**
+     * Установка ИНН ОФД
+     * @param ffdVersion
+     * @throws FiscalizatorException
+     */
+    void setFFDVersion(FFDVersion ffdVersion) throws FiscalizatorException;
+
+    /**
+     * Установка признака шифрования
+     * @param flag
+     */
+    void setEncryptionMode(boolean flag) throws FiscalizatorException;
+
+    /**
+     * Установка автономного режима
+     * @param flag
+     */
+    void setOfflineMode(boolean flag) throws FiscalizatorException;
+
+    /**
+     * Установка автоматического режима
+     * @param flag
+     */
+    void setAutomaticMode(boolean flag) throws FiscalizatorException;
+
+    /**
+     * Установка признака расчетов в Интернете
+     * @param flag
+     */
+    void setInternetMode(boolean flag) throws FiscalizatorException;
+
+    /**
+     * Применение бланков строгой отчетности
+     * @param flag
+     */
+    void setBSOMode(boolean flag) throws FiscalizatorException;
+
+    /**
+     * Установка признака применения в сфере услуг
+     * @param flag
+     */
+    void setServiceMode(boolean flag) throws FiscalizatorException;
+
+    /**
+     * Установка признака установки принтера в автомате (Для ФФД 1.05 и выше)
+     * @param flag
+     */
+    void setPrinterAutomatic(boolean flag) throws FiscalizatorException;
+
+    /**
+     * Установка признака продажи подакцизного товара (Для ФФД 1.1 и выше)
+     * @param flag
+     * @throws FiscalizatorException
+     */
+    void setSaleExcisableGoods(boolean flag) throws FiscalizatorException;
+
+    /**
+     * Установка признака проведения азартных игр (Для ФФД 1.1 и выше)
+     * @param flag
+     * @throws FiscalizatorException
+     */
+    void setSignOfGambling(boolean flag) throws FiscalizatorException;
+
+    /**
+     * Установка признака проведения лотереи (Для ФФД 1.1 и выше)
+     * @param flag
+     * @throws FiscalizatorException
+     */
+    void setSignOfLottery(boolean flag) throws FiscalizatorException;
+
+    /**
+     * Установка кодов признаков агента (Для ФФД 1.1 и выше)
+     * @param agentSigns
+     * @throws FiscalizatorException
+     */
+    void setSignOfAgent(List<AgentSign> agentSigns) throws FiscalizatorException;
+
+    /**
+     * Установка номера автомата
+     * @param number
+     */
+    void setAutomaticNumber(String number) throws FiscalizatorException;
 
     /**
      * Установка адреса сервера ОФД
@@ -103,7 +191,7 @@ public interface Fiscalizator extends Printer {
      * @param cashierVatIn
      * @throws FiscalizatorException
      */
-    void openFiscalCheck(CheckType checkType, String cashierName, String cashierVatIn, String taxVariant) throws FiscalizatorException;
+    void openFiscalCheck(CheckType checkType, String cashierName, String cashierVatIn, TaxVariant taxVariant) throws FiscalizatorException;
 
     /**
      * Открыть нефискальный чек
@@ -149,7 +237,7 @@ public interface Fiscalizator extends Printer {
      * @param sumVat118             сумма НДС чека по ставке 18/118
      * @throws FiscalizatorException
      */
-    void correction(CorrectionCheckType correctionCheckType, CorrectionType correctionType, String docNum, String docName, Date docDate, String cashierName, String cashierVatIn, String taxVariant, double cash, double card, double advance, double credit, double provision, double sumVatNo, double sumVat0, double sumVat10, double sumVat18, double sumVat110, double sumVat118) throws FiscalizatorException;
+    void correction(CorrectionCheckType correctionCheckType, CorrectionType correctionType, String docNum, String docName, Date docDate, String cashierName, String cashierVatIn, TaxVariant taxVariant, double cash, double card, double advance, double credit, double provision, double sumVatNo, double sumVat0, double sumVat10, double sumVat18, double sumVat110, double sumVat118) throws FiscalizatorException;
 
     /**
      * Регистация оплаты
@@ -292,7 +380,7 @@ public interface Fiscalizator extends Printer {
      * @return
      * @throws FiscalizatorException
      */
-    List<String> getTaxVariants() throws FiscalizatorException;
+    List<TaxVariant> getTaxVariants() throws FiscalizatorException;
 
     /**
      * Получение названия зарегистрированной организации

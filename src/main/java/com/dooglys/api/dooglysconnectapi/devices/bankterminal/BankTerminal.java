@@ -29,6 +29,13 @@ public interface BankTerminal extends Device {
     void settlement() throws BankTerminalException;
 
     /**
+     * Сводный чек
+     *
+     * @throws BankTerminalException
+     */
+    void consolidation() throws BankTerminalException;
+
+    /**
      * Получить код RRN
      *
      * @return
