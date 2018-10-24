@@ -56,4 +56,11 @@ public interface BankTerminal extends Device {
      */
     String getSlipCheck();
 
+    /**
+     * Открыть сервисное меню
+     *
+     * @return
+     */
+    void openServiceMenu();
+
 }
