@@ -531,6 +531,6 @@ public interface Fiscalizator extends Printer {
      * @return
      * @throws FiscalizatorException
      */
-    boolean getIncassation() throws FiscalizatorException;
+    boolean getEncashment() throws FiscalizatorException;
 
 }
