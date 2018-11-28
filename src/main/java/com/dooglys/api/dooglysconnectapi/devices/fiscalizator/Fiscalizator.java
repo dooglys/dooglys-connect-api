@@ -525,4 +525,12 @@ public interface Fiscalizator extends Printer {
      */
     FFDVersion getFFDVersionKKT() throws FiscalizatorException;
 
+    /**
+     * Получение флага инкассации ККТ перед закрытием смены
+     *
+     * @return
+     * @throws FiscalizatorException
+     */
+    boolean getEncashment() throws FiscalizatorException;
+
 }

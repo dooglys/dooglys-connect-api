@@ -36,6 +36,13 @@ public interface BankTerminal extends Device {
     void consolidation() throws BankTerminalException;
 
     /**
+     * Открыть сервисное меню
+     *
+     * @return
+     */
+    void openServiceMenu() throws BankTerminalException;
+
+    /**
      * Получить код RRN
      *
      * @return
