@@ -533,4 +533,11 @@ public interface Fiscalizator extends Printer {
      */
     boolean getEncashment() throws FiscalizatorException;
 
+    /**
+     * Отправка команды на перезагрузку ККМ
+     * @return
+     * @throws FiscalizatorException
+     */
+    void reboot() throws FiscalizatorException;
+
 }
