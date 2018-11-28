@@ -6,7 +6,7 @@
 
     <groupId>com.dooglys.api</groupId>
     <artifactId>dooglys-connect-api</artifactId>
-    <version>1.5</version>
+    <version>1.4</version>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
